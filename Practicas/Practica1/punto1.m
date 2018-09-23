@@ -1,5 +1,5 @@
-c1 = imread("../../ImagenesCaras/cara1.png");
-c2 = imread("../../ImagenesCaras/cara2.png");
+function punto1(c1, c2, osc)
+
 figure
 subplot(1,2,1)
 imshow(c1)
@@ -20,18 +20,24 @@ title("A - B")
 subplot(1,2,2)
 imshow(resta2)
 title("B - A")
-
+pause
+close
 
 suma = c1 + c2;
 figure;
 imshow(suma)
 title("A + B")
 
+pause
+close
+
 prod = c1.*c2;
 figure;
 imshow(prod)
 title("A*B")
 
+pause
+close
 %punto B
 scalar = 2;
 prod1 = c1*scalar;
@@ -44,4 +50,17 @@ subplot(1,2,2)
 imshow(prod2)
 title("B*escalar")
 
+pause
+close all
 %Punto C
+dinam = compresion_rango_dinamico(osc);
+figure
+subplot(1,2,1)
+imshow(osc)
+title("Original")
+subplot(1,2,2)
+imshow(dinam)
+title("Rango dinamico")
+
+pause
+close all

@@ -1,8 +1,8 @@
 function res = compresion_rango_dinamico(imagen)
-  R = max(max(imagen))
-  L = 256
+  R = max(max(imagen));
+  L = 256;
   
-  c = (L-1) / log(1 + R)
+  c = (L-1) / log10(1 + R);
   
-  res = log(1 + imagen)*c;
+    res = uint8((log10(1 + imagen)*c));
 endfunction
