@@ -40,4 +40,30 @@ subplot(3,2,6);
 imshow(val_eq);
 title("value ecualizada");
 
+im_ec = conv;
+im_ec(:,:,1) = hue_eq;
+im_ec(:,:,2) = sat_eq;
+im_ec(:,:,3) = val_eq;
+figure
+subplot(2,1,1)
+imshow(im)
+
+title("imagen original")
+imrara = hsv2rgb(uint8(im_ec));
+subplot(2,1,2)
+imshow(imrara)
+title("imagen ecualizada desde hsv");
+
+im_ec = conv;
+im_ec(:,:,2) = sat_eq;
+im_ec(:,:,3) = val_eq;
+figure
+subplot(2,1,1)
+imshow(im)
+
+title("imagen original")
+imrara = hsv2rgb(uint8(im_ec));
+subplot(2,1,2)
+imshow(imrara)
+title("imagen ecualizada desde hsv sin hue_ec");
 endfunction
