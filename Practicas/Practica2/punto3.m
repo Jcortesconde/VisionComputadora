@@ -1,5 +1,4 @@
 function punto3(im)
-addpath("../Practica1")
 conv = rgb2hsv(im);
 
 figure

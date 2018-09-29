@@ -1,4 +1,4 @@
-function res = saturar_hue(rgbImg, c)
+function res = punto2a(rgbImg, c)
   hsvImg = rgb2hsv(rgbImg);
   
   h_channel = (hsvImg(:,:,1)*255);
