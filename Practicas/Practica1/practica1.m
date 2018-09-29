@@ -75,15 +75,94 @@ close all
 
 fprintf('=======================================================\n');
 fprintf('Punto 5\n');
-crear_histograma(c1);
+figure
+subplot(1,2,1)
+imshow(c1)
+title("Original")
+subplot(1,2,2)
+bar(crear_histograma(c1));
+title("Histograma")
 pause
 close
 
 fprintf('=======================================================\n');
 fprintf('Punto 6\n');
+img1 = aumentar_contraste(ec, 1);
+img2 = aumentar_contraste(ec, 2);
+img3 = aumentar_contraste(ec, 3);
+figure
+subplot(2,2,1)
+imshow(ec)
+title("Original")
+subplot(2,2,2)
+imshow(img1)
+title("Misma pendiente para las ultimas dos secciones")
+subplot(2,2,3)
+imshow(img2)
+title("Mayor pendiente para la ulitma seccion.")
+subplot(2,2,4)
+imshow(img3)
+title("Identidad corrida ultima seccion.")
+pause
+close
 
 fprintf('=======================================================\n');
 fprintf('Punto 7\n');
+hist = crear_histograma(ec);
 
+img1 = ecualizar_histograma(ec,1);
+hist1 = crear_histograma(img1);
+
+img2 = ecualizar_histograma(ec,2);
+hist2 = crear_histograma(img2);
+
+figure
+subplot(3,2,1)
+imshow(ec)
+title("Original")
+subplot(3,2,2)
+bar(hist)
+title("Histograma de Original")
+subplot(3,2,3)
+imshow(img1)
+title("Formula simple")
+subplot(3,2,4)
+bar(hist1)
+title("Histograma de Formula simple")
+subplot(3,2,5)
+imshow(img2)
+title("Formula catedra")
+subplot(3,2,6)
+bar(hist2)
+title("Histograma de Formula catedra")
+pause
+close
 fprintf('=======================================================\n');
 fprintf('Punto 8\n');
+
+doble = ecualizar_histograma(img2, 2);
+hist_doble = crear_histograma(doble);
+figure
+subplot(3,2,1)
+imshow(ec)
+title("Original")
+subplot(3,2,2)
+bar(hist)
+title("Histograma de Original")
+subplot(3,2,3)
+imshow(img2)
+title("Formula catedra")
+subplot(3,2,4)
+bar(hist2)
+title("Histograma de Formula catedra")
+subplot(3,2,5)
+imshow(doble)
+title("Doble")
+subplot(3,2,6)
+bar(hist_doble)
+title("Histograma de doble")
+pause
+fprintf('La intuicion que teniamos era que la imagen se iba a desvirtuar, pero al ver que eran iguales entendimos que la funcion de distribucion acumulada iba a ser siempre la misma y al tratar de encontrar una fomra mas uniforme de distribuir los datos ibamos a caer en el mismo resultado.\n');
+pause
+pause
+close all

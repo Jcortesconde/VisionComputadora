@@ -9,5 +9,4 @@ function histograma = crear_histograma(imagen)
   
   histograma = frecuencias / (rows(imagen)*columns(imagen));
   
-  bar(histograma);
-end
+ end
