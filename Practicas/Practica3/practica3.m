@@ -1,7 +1,7 @@
-function practica3(img_src)
+function practica3(img_src, lena_src, test_src)
 mascara_baja3 = [1 2 1; 2 4 2; 1 2 1] * (1/16);
 mascara_baja5 = [1 4 6 4 1; 4 16 24 16 4;6 24 36 24 6; 4 16 24 16 4; 1 4 6 4 1] * (1/256);
-im = imread(img_src)
+im = imread(img_src);
 fprintf('Practica tres, aprete enter para pasar de ejercicio.\n');
 pause;
 fprintf('Punto 1.\n');
@@ -15,6 +15,12 @@ punto2(im, mascara_rectangular);
 pause;
 close all;
 
-
+img_lena = imread(lena_src);
+img_test = imread(test_src);
 fprintf('punto 3.\n');
+punto3(img_lena, img_test, mascara_baja3);
+pause;
+close all;
+
+
 endfunction
