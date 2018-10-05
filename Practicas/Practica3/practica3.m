@@ -18,9 +18,16 @@ close all;
 img_lena = imread(lena_src);
 img_test = imread(test_src);
 fprintf('punto 3.\n');
-punto3(img_lena, img_test, mascara_baja3);
+[a, b,c,d] = punto3(img_lena, img_test, mascara_baja3);
 pause;
 close all;
 
+fprintf('punto 4.\n');
+punto4(img_lena, img_test, mascara_baja3);
+pause;
+close all;
 
+punto6(img_lena, img_test, mascara_baja3);
+pause;
+close all;
 endfunction

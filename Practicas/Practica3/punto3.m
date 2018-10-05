@@ -1,10 +1,12 @@
-function punto3(img_lena, img_test, mascara_baja3)
+function [suavizado_lena, sharp_lena, suavizado_test, sharp_test] = punto3(img_lena, img_test, mascara_baja3)
 
-suavizado_lena = conv2(img_lena, mascara_baja3, "same");
+suavizado_lena = uint8(conv2(img_lena, mascara_baja3, "same"));
 
 sharp_lena = unsharp_masking(img_lena, mascara_baja3, 1.5);
 
-suavizado_test = conv2(img_test, mascara_baja3, "same");
+suavizado_test = uint8(conv2(img_test, mascara_baja3, "same"));
+
+
 sharp_test = unsharp_masking(img_test, mascara_baja3, 1.5);
 
 figure
