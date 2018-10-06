@@ -6,30 +6,32 @@ fprintf('Practica tres, aprete enter para pasar de ejercicio.\n');
 pause;
 fprintf('Punto 1.\n');
 %punto1(im, mascara_baja3, mascara_baja5);
-%pause;
-%close all;
-%
-%fprintf('Punto 2.\n');
-%mascara_rectangular = [1 2 1]* (1/4);
+
+pause;
+close all;
+
+fprintf('Punto 2.\n');
+mascara_rectangular = [1 2 1]* (1/4);
 %punto2(im, mascara_rectangular);
-%pause;
-%close all;
-%
+pause;
+close all;
+
 img_lena = imread(lena_src);
 img_test = imread(test_src);
-%fprintf('punto 3.\n');
+fprintf('punto 3.\n');
 %[a, b,c,d] = punto3(img_lena, img_test, mascara_baja3);
-%pause;
-%close all;
+pause;
+close all;
 
-%fprintf('punto 4.\n');
+fprintf('punto 4.\n');
 %punto4(img_lena, img_test, mascara_baja3);
-%pause;
-%close all;
+pause;
+close all;
 
+fprintf('punto 6.\n');
 %punto6(img_lena, img_test, mascara_baja3);
-%pause;
-%close all;
+pause;
+close all;
 
 fprintf('punto 8.\n');
 punto8(img_lena, img_test);
