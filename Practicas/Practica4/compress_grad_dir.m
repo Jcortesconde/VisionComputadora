@@ -1,8 +1,9 @@
 function compressed = compress_grad_dir(grad_dir)
   compressed = grad_dir;
   
-  compressed( abs(grad_dir) <= pi/8 && abs(grad_dir - pi) => 1/8 ) = 0;
-  compressed( abs(grad_dir - pi/4) > 1/8 && abs(grad_dir - pi*5/4) < 1/8) = 45;
-  compressed( abs(grad_dir - pi/2) => 1/8 && abs(grad_dir - pi*3/2) < 1/8) = 90;
-  compressed( abs(grad_dir - pi*3/4) => 1/8 && abs(grad_dir - pi*5/2) < 1/8) = 135;  
+  portion = 1/8;
+  compressed( abs(grad_dir) <= portion | abs(grad_dir - pi) < portion ) = 0;
+  compressed( abs(grad_dir) - 1/4 <= portion | abs(grad_dir) - 5/4 < portion) = 45;
+  compressed( abs(grad_dir) - 1/2 <= portion | abs(grad_dir) - 3/2 < portion) = 90;
+  compressed( abs(grad_dir) - 3/4 <= portion | abs(grad_dir) - 5/2 < portion) = 135;  
 endfunction
