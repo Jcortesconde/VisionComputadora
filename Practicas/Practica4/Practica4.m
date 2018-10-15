@@ -9,7 +9,7 @@ fprintf('Punto 1.\n');
 
 
 fprintf('Punto 2.\n');
-threshold = 200;
+threshold = 60;
 size_square = 5;
 punto2(lena_g, lena_r, test_g, test_r, threshold, size_square);
 pause;
