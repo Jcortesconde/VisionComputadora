@@ -1,4 +1,4 @@
-function [bordes, var_img] = eval_var(img, threshold, size_square)
+function [borders, var_img] = eval_var(img, threshold, size_square)
 
 %tengo size que tiene que ser impar (si no se le resta uno)
 % size -1 /2 es lo que me muevo para cualquier lado
@@ -10,14 +10,13 @@ aux_img = double(img);
 margins = (size_square - 1) / 2;
 borders = img;
 var_img = zeros(size(img));
-size(img)
-size(var_img)
+
 for i = 1 : size(img)(1)
   for j = 1 : size(img)(2)
-    borde_der = uint8(min(i+margins, size(img)(1)));
-    borde_izq = uint8(max(i-margins, 1));
-    borde_inf = uint8(min(j+margins, size(img)(2)));
-    borde_sup = uint8(max(j-margins, 1));
+    borde_der = uint32(min(i+margins, size(img)(1)));
+    borde_izq = uint32(max(i-margins, 1));
+    borde_inf = uint32(min(j+margins, size(img)(2)));
+    borde_sup = uint32(max(j-margins, 1));
     tam = double((borde_der - borde_izq + 1)* (borde_inf - borde_sup + 1));
     %calc varianza:
 
@@ -30,8 +29,9 @@ for i = 1 : size(img)(1)
   endfor    
 endfor
 
-
-index = find(var_img > threshold);
+varianze_list = reshape(var_img, size(var_img)(1)*size(var_img)(2),1);
+percentile = prctile(varianze_list, threshold);
+index = find(var_img < percentile);
 borders(index) = 0;
 
 endfunction
