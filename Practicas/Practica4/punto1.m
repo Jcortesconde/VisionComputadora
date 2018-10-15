@@ -16,7 +16,7 @@ title('lena guassiano')
 subplot(2,2,4)
 imshow(lena_r)
 title('lena rayleigh')
-printf('apretar enter para pasar de conjunto de imagenes.')
+printf('\tapretar enter para pasar de conjunto de imagenes.\n')
 pause;
 
 close all;
@@ -31,7 +31,7 @@ title('test guassiano')
 subplot(2,2,4)
 imshow(test_r)
 title('test rayleigh')
-printf('apretar enter para terminar el ejercicio.')
+printf('\tapretar enter para terminar el ejercicio.\n')
 pause;
 
 close all;
