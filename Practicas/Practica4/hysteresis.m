@@ -34,5 +34,5 @@ function umbraleada = hysteresis(no_maximos, grad_dir, u_min, u_max)
     until ( aux == bordes )
     
     umbraleada = zeros(size(no_maximos));
-    umbraleada(bordes == 0) = 0;
+    umbraleada += bordes.*no_maximos;
 endfunction
