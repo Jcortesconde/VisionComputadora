@@ -8,5 +8,7 @@ function edge = canny(img, mask, gradient_method, low_threshold, high_threshold)
  grad_dir = compress_grad_dir(grad_dir);
  aux = non_maximum(aux,grad_dir);
  aux = hysteresis(aux, grad_dir, low_threshold, high_threshold);
- edge = aux;
+ 
+% edge = aux;
+ edge = deriche(aux, grad_dir);
 endfunction

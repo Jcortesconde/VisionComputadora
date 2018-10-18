@@ -1,11 +1,8 @@
-function umbraleada = hysteresis(no_maximos, grad_dir, u_min, u_max)
-    borders = zeros(size(no_maximos));
-    borders(no_maximos > u_max) = 1;
-    intensity_cols = size(no_maximos)(1);
+function aux = deriche(borders, grad_dir)
+    
     aux = borders;
-    
-    
-     v_i = 0;
+    [fils, cols] = size(borders)
+    v_i = 0;
     v_j = 0;
     do
       
@@ -30,20 +27,14 @@ function umbraleada = hysteresis(no_maximos, grad_dir, u_min, u_max)
             v_j = -1;
          endswitch
         
-        if(i_s(ind) + v_i <= fils && i_s(ind) + v_i > 0 && j_s(ind) + v_j <= cols && j_s(ind) + v_j > 0 )
-          if(no_maximos(i_s(ind)+v_i,j_s(ind)+v_j) > u_min)
-            borders(i_s(ind)+v_i, j_s(ind)+v_j) = 1;
-          endif
+        if(i_s(ind) + v_i <= fils && i_s(ind) + v_i > 0 && j_s(ind) + v_j <= cols && j_s(ind) + v_j > 0)
+          borders(i_s(ind)+v_i, j_s(ind)+v_j) = 255;
         endif
         
         if(i_s(ind) - v_i <= fils && i_s(ind) - v_i > 0 && j_s(ind) - v_j <= cols && j_s(ind) - v_j > 0)
-          if(no_maximos(i_s(ind)-v_i,j_s(ind)-v_j) > u_min)
-            borders(i_s(ind)-v_i, j_s(ind)-v_j) = 1;
-          endif
+          borders(i_s(ind)-v_i, j_s(ind)-v_j) = 255;
         endif        
       endfor       
     until ( aux == borders )
-         
-    umbraleada = zeros(size(no_maximos));
-    umbraleada += borders.*no_maximos;
+    
 endfunction

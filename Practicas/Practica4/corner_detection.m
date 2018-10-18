@@ -1,4 +1,4 @@
-function corners = corner_detection(img, method, factor_method, size_gauss)
+function R = corner_detection(img, method, factor_method, size_gauss)
     hor = [1 2 1; 0 0 0; -1 -2 -1];
     ver = -1* hor';
 
@@ -8,7 +8,7 @@ function corners = corner_detection(img, method, factor_method, size_gauss)
     Ixy = gx .* gy;
     Ixx = gx.^2;
     Iyy = gy.^2;
-    ventana_gauss = fspecial("gaussian", size_gauss);
+    ventana_gauss = fspecial("gaussian", [size_gauss size_gauss]);
     
     Ixy = conv2(Ixy, ventana_gauss, 'same');
     Ixx = conv2(Ixx, ventana_gauss, 'same');
@@ -31,17 +31,15 @@ function corners = corner_detection(img, method, factor_method, size_gauss)
     
     R = zeros(size(img));
     switch(method)
-        case {"harris"}
-            R = lambdas(:,:,1, 1) .* lambdas(:,:, 2, 1) - factor_method * (lambdas(:,:, 1, 1) + lambdas(:,:, 2, 1));
-        case{"triggs"}
+        case 1
+             R = lambdas(:,:,1, 1) .* lambdas(:,:, 2, 1) - factor_method * (lambdas(:,:, 1, 1) + lambdas(:,:, 2, 1));
+        case 2
             R = (lambdas(:,:, 1, 1) - factor_method * lambdas(:,:, 2, 1));
-        case{"szeliski"}
+        case 3
             R = lambdas(:,:, 1, 1) .* lambdas(:,:,2, 1) ./(lambdas(:,:, 1, 1) + lambdas(:,:, 2, 1));
-        case{"tomasi"}
+        case 4
             R = lambdas(:,:, 1, 1);
     endswitch
-
-  corners = R;
 
 endfunction  
        
