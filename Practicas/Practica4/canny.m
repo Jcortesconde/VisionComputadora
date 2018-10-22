@@ -7,7 +7,5 @@ function edge = canny(img, gradient_method,size_gauss, low_threshold, high_thres
  aux = non_maximum(aux,grad_dir);
  logic_borders = hysteresis(aux, grad_dir, low_threshold, high_threshold);
  
-% edge = aux;
- %logic_borders = deriche(logic_borders, grad_dir);
  edge = aux.*(logic_borders);
 endfunction

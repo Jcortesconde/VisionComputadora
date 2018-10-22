@@ -12,8 +12,13 @@ fprintf('Punto 2.\n');
 threshold = 60;
 size_square = 5;
 %punto2(lena_g, lena_r, test_g, test_r, threshold, size_square);
-%pause;
-%close all;
+pause;
+close all;
+
+fprintf('Punto 3.\n')
+%punto3(lena, lena_g, lena_r,test,  test_g, test_r)
+
+
 
 
 fprintf('Punto 4.\n')
