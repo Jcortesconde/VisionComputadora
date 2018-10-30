@@ -1,10 +1,9 @@
 function [suavizado_lena, sharp_lena, suavizado_test, sharp_test] = punto3(img_lena, img_test, mascara_baja3)
-
-suavizado_lena = uint8(conv2(img_lena, mascara_baja3, "same"));
+suavizado_lena = imfilter(img_lena, mascara_baja3, "replicate");
 
 sharp_lena = unsharp_masking(img_lena, mascara_baja3, 1.5);
 
-suavizado_test = uint8(conv2(img_test, mascara_baja3, "same"));
+suavizado_test = imfilter(img_test, mascara_baja3, "replicate");
 
 
 sharp_test = unsharp_masking(img_test, mascara_baja3, 1.5);
@@ -28,5 +27,7 @@ title("suavizado")
 subplot(2,3,6)
 imshow(sharp_test)
 title("unsharp masking con constante 1.5")
-
+fprintf('apretar enter')
+pause;
+close all;
 endfunction

@@ -12,7 +12,9 @@ function punto6(img_lena, img_test, mascara_baja3)
   subplot(1,3,3)
   imshow(sharp_lena)
   title('lena sharp')
-  
+  fprintf('apretar enter\n')
+  pause
+  close all
   lena_condim1 = salt_pepper(img_lena, 0.1, 0.9);
   suav_lena_condim1 = salt_pepper(suavizado_lena, 0.1,0.9);
   sharp_lena_condim1 = salt_pepper(sharp_lena, 0.1,0.9);
@@ -40,7 +42,9 @@ function punto6(img_lena, img_test, mascara_baja3)
   subplot(2,3,6)
   imshow(sharp_lena_condim1_f)
   title('lena sharp con ruido salt pepper 0.1, 0.9 filtrada')
-  
+  fprintf('apretar enter\n')
+  pause
+  close all  
 
   lena_condim2 = salt_pepper(img_lena, 0.05, 0.95);
   suav_lena_condim2 = salt_pepper(suavizado_lena, 0.05,0.95);
@@ -84,7 +88,11 @@ function punto6(img_lena, img_test, mascara_baja3)
   subplot(1,3,3)
   imshow(sharp_test)
   title('test sharp')
-  
+
+  fprintf('apretar enter\n')
+  pause
+  close all  
+
   test_condim1 = salt_pepper(img_test, 0.1, 0.9);
   suav_test_condim1 = salt_pepper(suavizado_test, 0.1,0.9);
   sharp_test_condim1 = salt_pepper(sharp_test, 0.1,0.9);
@@ -112,7 +120,10 @@ function punto6(img_lena, img_test, mascara_baja3)
   subplot(2,3,6)
   imshow(sharp_test_condim1_f)
   title('test sharp con ruido salt pepper 0.1, 0.9 filtrada')
-  
+    
+  fprintf('apretar enter\n')
+  pause
+  close all  
 
   lena_condim2 = salt_pepper(img_lena, 0.05, 0.95);
   suav_lena_condim2 = salt_pepper(suavizado_lena, 0.05,0.95);

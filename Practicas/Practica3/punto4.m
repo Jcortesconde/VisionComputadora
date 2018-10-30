@@ -19,29 +19,21 @@ test_ruido_rayleigh3 = ruido_rayleigh(img_test, 2);
 fprintf('\ta.\n');
 fprintf('\t\tsigma 1.\n');
 [a, b,c,d] = punto3(lena_ruido_gauss1, test_ruido_gauss1, mascara);
-pause;
-close all;
+
 fprintf('\t\tsigma 0.5.\n');
 [a, b,c,d] = punto3(lena_ruido_gauss2, test_ruido_gauss2, mascara);
-pause;
-close all;
+
 fprintf('\t\tsigma 0.01.\n');
 [a, b,c,d] = punto3(lena_ruido_gauss3, test_ruido_gauss3, mascara);
-pause;
-close all;
 fprintf('\tb.\n');
 
 fprintf('\t\tsigma 1.\n');
 [a, b,c,d] = punto3(lena_ruido_rayleigh1, test_ruido_rayleigh1, mascara);
-pause;
-close all;
+
 fprintf('\t\tsigma 0.5.\n');
 [a, b,c,d] = punto3(lena_ruido_rayleigh2, test_ruido_rayleigh2, mascara);
-pause;
-close all;
+
 fprintf('\t\tsigma 2.\n');
 [a, b,c,d] = punto3(lena_ruido_rayleigh3, test_ruido_rayleigh3, mascara);
-pause;
-close all;
 
 endfunction

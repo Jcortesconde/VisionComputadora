@@ -15,4 +15,5 @@ function res = convol(img, mask)
       res(i-r,j-c) = sum(sum(submatrix));
     endfor    
   endfor
+  
 endfunction

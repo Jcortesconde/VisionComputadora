@@ -31,7 +31,7 @@ grad(grad_dir == 90) += values .* intensity(ceros);
 
 %% Gradientes 135
 ceros = find(grad_dir == 135);
-values = (intensity(ceros) > intensity(ceros + intensity_cols + 1) && intensity(ceros) > intensity(ceros - intensity_cols - 1));
+  values = (intensity(ceros) > intensity(ceros + intensity_cols + 1) & intensity(ceros) > intensity(ceros - intensity_cols - 1));
 grad(grad_dir == 135) += values .* intensity(ceros);  
 
 grad = grad(2:intensity_cols-1, 2:intensity_rows-1);

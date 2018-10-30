@@ -11,23 +11,23 @@ function punto1(img, mascara_bajo3, mascara_bajo5)
 
   pasa_alto3 = img - pasa_bajo3;
 
- pasa_alto5 = img - pasa_bajo5;
+  pasa_alto5 = img - pasa_bajo5;
 
  figure
  subplot(3,2,1)
  imshow(img)
  title("Imagen original") 
  subplot(3,2,3)
- imshow(pasa_bajo3)
+ imshow(uint8(pasa_bajo3))
  title("Pasa bajo 3x3")
  subplot(3,2,4)
- imshow(pasa_bajo5)
+ imshow(uint8(pasa_bajo5))
  title("pasa bajo 5x5")
  subplot(3,2,5)
- imshow(pasa_alto3)
+ imshow(uint8(pasa_alto3))
  title("pasa alto 3x3")
  subplot(3,2,6)
- imshow(pasa_alto5)
+ imshow(uint8(pasa_alto5))
  title("pasa alto 5x5")
 
 endfunction

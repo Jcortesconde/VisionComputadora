@@ -33,7 +33,7 @@ function punto8(img_lena, img_test)
 
 	figure
 	subplot(2,2,1)
-	imshow(lena_gauss)
+	imshow(uint8(lena_gauss))
 	title("Lena Gauss")
 	subplot(2,2,2)
 	imshow(lena_gauss_roberts)
@@ -51,7 +51,7 @@ function punto8(img_lena, img_test)
 
 	figure
   subplot(2,2,1)
-	imshow(lena_rayleigh)
+	imshow(uint8(lena_rayleigh))
 	title("Lena Rayleigh")
 	subplot(2,2,2)
 	imshow(lena_rayleigh_roberts)
