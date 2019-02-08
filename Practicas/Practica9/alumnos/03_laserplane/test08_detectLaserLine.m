@@ -5,7 +5,7 @@ fprintf('%d images to process\n',length(imageFileNames));
 
 %% detect laser line pixels
 
-i = 1; % test on several images
+i = 10; % test on several images
 I = imread(imageFileNames{i});
 figure, imshow(I)
     
@@ -17,7 +17,7 @@ if ~exist('mask','var')
     mask(rect(2):rect(2)+rect(4),rect(1):rect(1)+rect(3)) = 1;
     figure; imagesc(mask);
 end
-%
+
 [Lx,Ly] = detectLaser2(I,mask);
 
 %% display results

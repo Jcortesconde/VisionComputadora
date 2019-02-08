@@ -1,6 +1,6 @@
 %% Load data from disk
 load([laser_color_images_path '/../LaserChessboardCorners.mat'],'Rl','Tl');
-load(calib_resuls_filename,'KK', 'kc')
+load(calib_results_filename,'KK', 'kc')
 
 imageFileNames = dir(fullfile(laser_color_images_path,'*.png'));
 imageFileNames = fullfile({imageFileNames.folder}, {imageFileNames.name});
@@ -15,7 +15,8 @@ pointcloud = cell(n_ima,1);
 for i=1:n_ima
     %%
     I = imread(imageFileNames{i});
-    
+    clear mask;
+    close all;
     % detect laser line
     if ~exist('mask','var')
     %
@@ -53,10 +54,11 @@ for i=1:n_ima
 
     pointcloud{i} = laserpoints;
 end
-
+%%
 %%%%%%%%%%%%%%%%%%%%%%
 % estimatePlane 
 [laserPlane,LPts] = estimateLaserPlane(pointcloud);
+%laserPlane = [ -0.8731 -0.3507 0.3386 -123.6553]
 laserPlane
 swap_axes = 0;
 

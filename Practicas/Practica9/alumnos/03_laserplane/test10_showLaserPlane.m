@@ -47,7 +47,7 @@ end
 
 %% Show with camera and chessboard planes
 load([laser_color_images_path '/../LaserChessboardCorners.mat'],'iPt','wPt','Rl','Tl');
-load(calib_resuls_filename,'KK', 'kc')
+load(calib_results_filename,'KK', 'kc')
 
 imageFileNames = dir(fullfile(laser_color_images_path,'*.png'));
 imageFileNames = fullfile({imageFileNames.folder}, {imageFileNames.name});

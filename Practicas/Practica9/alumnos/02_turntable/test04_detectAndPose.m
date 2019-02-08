@@ -10,9 +10,10 @@ fprintf('%d images to process\n',length(imageFileNames));
 usingCheckerBoards = false;
 
 %% Detect checkerboards in images or ...
+squareSize = 25; % small checkerboard is 8 x 10 (rows x cols) with 8.7 mm square size
 if usingCheckerBoards
 % Generate world coordinates of the corners of the s2quares
-%squareSize = 20; % small checkerboard is 8 x 10 (rows x cols) with 8.7 mm square size
+
 %squareSize = 14.9; % big checkerboard is 8 x 10 with 14.9 mm square size
 
 [imagePoints, boardSize, imagesUsed] = detectCheckerboardPoints(imageFileNames);
@@ -50,7 +51,7 @@ for i=1:length(imageFileNames)
     I = imread(imageFileNames{i});
     fprintf('%s\n',imageFileNames{i});
     [ps,us] = caltag(I, [caltag_path '/GeneratePattern/output.mat'], false );
-    wPt{i} = ps(:,[2 1]);
+    wPt{i} = ps(:,[2 1])*25;
     iPt{i} = us(:,[2 1]);
 end
 

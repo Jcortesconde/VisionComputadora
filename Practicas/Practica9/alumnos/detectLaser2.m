@@ -11,7 +11,9 @@ convMatrix = (convVec' * convVec)/256;
 
 I_d = double(I);
 if exist('mask', 'var')
-    I_d = I_d.*repmat(mask(2:end,:,:), [1,1,3]);
+    I_d(:,:,1) = I_d(:,:,1).*mask;
+    I_d(:,:,2) = I_d(:,:,2).*mask;
+    I_d(:,:,3) = I_d(:,:,3).*mask;
 end
 
 filteredImage = zeros(size(I));
