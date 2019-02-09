@@ -11,7 +11,8 @@ function [laserPlane,LPts] = estimateLaserPlane(pointcloud)
    end
    
    [U,S,V] = svd(A);
-   laserPlane = V(:,4);
+   laserNormal = V(1:3,4);
+   laserPlane = V(:, 4)/norm(laserNormal);
    LPts = A';
    
 end
