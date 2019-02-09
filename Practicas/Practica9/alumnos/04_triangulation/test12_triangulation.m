@@ -1,8 +1,8 @@
 %% Load calibration from file
 
 load(fullfile(turntable_images_path,'CameraPose.mat'),'worldRotation','worldTranslation');
-load(calib_resuls_filename,'KK', 'kc')
-load([turntable_images_path '/TurntableCalib.mat'],'angs');
+load(calib_results_filename,'KK', 'kc')
+load([turntable_images_path '/../TurntableCalib.mat'],'angs');
 load([laser_color_images_path '/../LaserPlane_Results.mat'],'laserPlane');
 
 %% Load images of the scanned object
@@ -39,6 +39,7 @@ for i = 1:N
     mask(rect(2):rect(2)+rect(4),rect(1):rect(1)+rect(3)) = 1;
     figure, imagesc(mask)
     end
+    
     [Lx,Ly] = detectLaser2(I,mask);
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -6,7 +6,7 @@ function [ Lx, Ly ] = detectLaser2( I, mask )
 
 %% Filtro de la imagen
 
-convVec = [ 1 4 6 4 1 ]
+convVec = [ 1 4 6 4 1 ];
 convMatrix = (convVec' * convVec)/256;
 
 I_d = double(I);
@@ -23,9 +23,9 @@ filteredImage(:,:,3) = imfilter(I_d(:,:,3), convMatrix, 'same');
 
 v =  filteredImage(:,:,1) - (filteredImage(:,:,2) + filteredImage(:,:,3))/2;
 
-avgRowMax = mean(max(v'))
+avgRowMax = mean(max(v'));
 
-v(v < 0.8*avgRowMax) = 0;
+v(v < 1.5*avgRowMax) = 0;
 [Ly, Lx] = find(v > 0);
 
 end
